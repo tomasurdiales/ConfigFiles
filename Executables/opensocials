@@ -1,0 +1,7 @@
+#!/opt/homebrew/bin/zsh
+
+open -a WhatsApp
+
+open https://mail.google.com/mail/u/0/
+open https://mail.google.com/mail/u/1/
+open https://calendar.google.com/calendar/u/0/r

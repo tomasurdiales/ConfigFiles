@@ -1,0 +1,8 @@
+[FORMAT]
+max-line-length=240
+disable=abstract-class-instantiated
+
+[MASTER]
+disable=
+	C0114, # missing-module-docstring
+	W0622, # redefined buil-in function
