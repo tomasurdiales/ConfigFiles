@@ -44,8 +44,6 @@ brew "wget"
 brew "zsh"
 # Transfer files from and to an Android smartphone
 cask "android-file-transfer"
-# Desktop password and login vault
-cask "bitwarden"
 # Web browser focusing on privacy
 cask "brave-browser"
 # Client for the Dropbox cloud storage service
