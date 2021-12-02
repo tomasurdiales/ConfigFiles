@@ -1,14 +1,17 @@
 #!/bin/bash
 
 # Homebrew installation:
+echo("Installing Homebrew:")
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # (will ask for sudo authorization)
 
 # Update zsh shell and install on Homebrew path: /opt/homebrew/bin
+echo("Installing and updating zsh:")
 brew install zsh
 # (this is required to run the programs under Executables)
 
 # Oh My Zsh installation:
+echo("Installing Oh My Zsh:")
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # (will ask for sudo authorization)
 
@@ -17,6 +20,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 mv -r ~/ConfigFiles ~/TomsConfig
 
 # Symlink all dotfiles:
+echo("Symlinking dotfiles to home directory:")
 ln -s ~/TomsConfig/.zshrc ~
 ln -s ~/TomsConfig/.zprofile ~
 ln -s ~/TomsConfig/.vimrc ~
@@ -27,6 +31,7 @@ ln -s ~/TomsConfig/.gitignore ~
 ln -s ~/TomsConfig/env.sh ~
 
 # Symlink Executable programs:
+echo("Symlinking personal scripts to /usr/local/bin:")
 ln -s ~/TomsConfig/Executables/runmatlab /usr/local/bin
 ln -s ~/TomsConfig/Executables/cwhich /usr/local/bin
 ln -s ~/TomsConfig/Executables/userlogout /usr/local/bin
@@ -44,6 +49,7 @@ chmod +x /usr/local/bin/jupyterpython
 
 # Run Brewfile to install all Homebrew casks and formulae:
 # (will take some time to go through everything)
+echo("Initialising installation of all Homebrew packages")
 cd ~/TomsConfig
 brew bundle
 # (requires that Brewfile be decrypted)
