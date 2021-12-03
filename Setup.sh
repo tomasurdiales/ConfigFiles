@@ -61,6 +61,9 @@ echo
 # # echo
 # # (requires that Brewfile be decrypted)
 
+# Load Terminal colour coding for quick save (turn into default):
+open ~/.TomsConfig/TomTerminal.terminal
+
 echo "Setup completed."
 echo ":|"
 echo
