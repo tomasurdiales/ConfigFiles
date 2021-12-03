@@ -12,32 +12,31 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # (will ask for sudo authorization)
 echo
 
+
 # Rename GitHub folder:
 echo "Renaming config folder to ~/TomsConfig..."
-mv ~/ConfigFiles-master ~/TomsConfig
+mv ~/ConfigFiles-master ~/.TomsConfig
 echo
 
 # Symlink all dotfiles:
 echo "Symlinking dotfiles to home directory..."
 mv ~/.zshrc ~/zshrc_old
-ln -s ~/TomsConfig/.zshrc ~
-ln -s ~/TomsConfig/.zprofile ~
-ln -s ~/TomsConfig/.vimrc ~
-ln -s ~/TomsConfig/.pylintrc ~
-ln -s ~/TomsConfig/.gitconfig ~ # (these are my personal settings!)
-ln -s ~/TomsConfig/.gitignore ~
+ln -s ~/.TomsConfig/.zshrc ~
+ln -s ~/.TomsConfig/.zprofile ~
+ln -s ~/.TomsConfig/.vimrc ~
+ln -s ~/.TomsConfig/.pylintrc ~
+ln -s ~/.TomsConfig/.gitconfig ~ # (these are my personal settings!)
+ln -s ~/.TomsConfig/.gitignore ~
 echo
-
-ln -s ~/TomsConfig/env.sh ~
 
 # Symlink Executable programs:
 echo "Symlinking personal scripts to /usr/local/bin..."
-ln -s ~/TomsConfig/Executables/runmatlab /usr/local/bin
-ln -s ~/TomsConfig/Executables/cwhich /usr/local/bin
-ln -s ~/TomsConfig/Executables/userlogout /usr/local/bin
-ln -s ~/TomsConfig/Executables/opensocials /usr/local/bin
-ln -s ~/TomsConfig/Executables/jupyterpdf /usr/local/bin
-ln -s ~/TomsConfig/Executables/jupyterpython /usr/local/bin
+ln -s ~/.TomsConfig/Executables/runmatlab /usr/local/bin
+ln -s ~/.TomsConfig/Executables/cwhich /usr/local/bin
+ln -s ~/.TomsConfig/Executables/userlogout /usr/local/bin
+ln -s ~/.TomsConfig/Executables/opensocials /usr/local/bin
+ln -s ~/.TomsConfig/Executables/jupyterpdf /usr/local/bin
+ln -s ~/.TomsConfig/Executables/jupyterpython /usr/local/bin
 # And give permissions to execute:
 chmod +x /usr/local/bin/runmatlab
 chmod +x /usr/local/bin/cwhich
