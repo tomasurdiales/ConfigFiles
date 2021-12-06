@@ -7,7 +7,7 @@ if [ $# -eq 0 ]
     then
 	echo "Launching MATLAB GUI..."
 	matlab
-	echo "Exitted succesfully."
+	echo "Exited succesfully."
     else
 	echo "Executing script $1.m"
 	matlab -batch "$1"
