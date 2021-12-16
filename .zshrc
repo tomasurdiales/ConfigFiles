@@ -18,7 +18,7 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -26,24 +26,37 @@ source $ZSH/oh-my-zsh.sh
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 
-##### Personal settings #####
+
+# ##### Personal settings #####
 
 echo 'Welcome to shell (zsh)'
-PS1=$'%{\e[1m%}[%{\e[1;32m%}%n@Mac%{\e[0m%}|%{\e[1;34m%}%~%{\e[0m%}%{\e[1m%}] %{\e[0m%}'
-# PS1=$'%{\e[1;32m%}%n@Mac %{\e[1;34m%}%~ %{\e[1;32m%}-> %{\e[0m%} '
-export PS1
 
-# To leave a black row after every command:
+# To enable GIT information on command prompt:
+autoload -Uz vcs_info
+
+# Pre-command calls:
 precmd() {
+
+    # To leave a black row before new every command:
     precmd() {
         echo
     }
+
+    # And call the GIT info variable:
+    precmd() { vcs_info }
 }
 
-# To show system info on startup:
-#if [[ $(who | wc -l) -eq 2 ]]; then
-#	neofetch
-#fi
+# Format GIT info on prompt:
+zstyle ':vcs_info:git:*' formats ' (git)-%b'
+
+# Define PROMPT setup:
+setopt prompt_subst
+PROMPT=$'%{\e[1m%}[%{\e[1;32m%}%n@Mac%{\e[0m%}|%{\e[1;34m%}%~%{\e[0m%}%{\e[33m%}${vcs_info_msg_0_}%{\e[0m%}%{\e[1m%}] %{\e[0m%}'
+
+# With no GIT information:
+# PS1=$'%{\e[1m%}[%{\e[1;32m%}%n@Mac%{\e[0m%}|%{\e[1;34m%}%~ ${vcs_info_msg_0_} %{\e[0m%}%{\e[1m%}] %{\e[0m%}'
+# # PS1=$'%{\e[1;32m%}%n@Mac %{\e[1;34m%}%~ %{\e[1;32m%}-> %{\e[0m%} '
+# export PS1
 
 # To make path output more readable:
 function path(){
@@ -55,3 +68,8 @@ function path(){
 
 # Copy pwd to the clipboard:
 alias cpwd='printf "%q\n" "$(pwd)" | pbcopy && echo "Current directory copied to clipboard."'
+
+# To show system info on startup:
+#if [[ $(who | wc -l) -eq 2 ]]; then
+#	neofetch
+#fi
