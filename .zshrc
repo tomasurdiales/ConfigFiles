@@ -24,6 +24,7 @@ source $ZSH/oh-my-zsh.sh
 
 # HOMEBREW Settings:
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ANALYTICS=1
 
 
 
