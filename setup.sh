@@ -14,12 +14,13 @@ echo
 
 # Rename GitHub folder:
 echo "Renaming config folder to ~/TomsConfig..."
-mv ~/ConfigFiles-master ~/.TomsConfig
+mv ~/ConfigFiles ~/.TomsConfig
 echo
 
 # Symlink all dotfiles:
 echo "Symlinking dotfiles to home directory..."
 mv ~/.zshrc ~/zshrc_old
+mv ~/.zprofile ~/zprofile_old
 ln -s ~/.TomsConfig/.zshrc ~
 ln -s ~/.TomsConfig/.zprofile ~
 ln -s ~/.TomsConfig/.vimrc ~
