@@ -35,16 +35,9 @@ echo 'Welcome to shell (zsh)'
 # To enable GIT information on command prompt:
 autoload -Uz vcs_info
 
-# Pre-command calls:
 precmd() {
-
-    # To leave a black row before new every command:
-    precmd() {
-        echo
-    }
-
-    # And call the GIT info variable:
-    precmd() { vcs_info }
+    # # To leave a black row before new every command and call the GIT info variable:
+    precmd() { vcs_info && echo}
 }
 
 # Format GIT info on prompt:
