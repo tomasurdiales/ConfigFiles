@@ -3,7 +3,7 @@
 
 # Manual PATH definition:
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
-# for homebrew (Python, R, etc)
+# And for Homebrew:
 PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH 
 export PATH
 

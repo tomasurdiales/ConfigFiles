@@ -13,6 +13,7 @@ if [ $# -eq 0 ]
             else
                 echo "Logging out $1..."
                 sudo launchctl bootout user/$(id -u $1)
+                
                 # Old method:
                 # export pn=`ps awwwwux | awk '/alvarourdiales/ && /loginwind[o]w/ { print $2 }'`
                 # sudo kill -9 $pn

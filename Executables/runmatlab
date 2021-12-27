@@ -9,6 +9,16 @@ if [ $# -eq 0 ]
 	matlab
 	echo "Exited succesfully."
     else
-	echo "Executing script $1.m"
-	matlab -batch "$1"
+		if [ $1 = "-cli" ]
+			then
+				echo "Launching MATLAB CLI..."
+				matlab -nodesktop
+				echo "Exited succesfully."
+			else
+				echo "Executing script $1.m ..."
+				echo
+				matlab -batch "$1"
+				echo
+				echo "Completed execution."
+		fi
 fi
