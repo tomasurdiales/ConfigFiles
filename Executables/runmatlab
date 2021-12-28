@@ -16,9 +16,7 @@ if [ $# -eq 0 ]
 				echo "Exited succesfully."
 			else
 				echo "Executing script $1.m ..."
-				echo
 				matlab -batch "$1"
-				echo
 				echo "Completed execution."
 		fi
 fi
