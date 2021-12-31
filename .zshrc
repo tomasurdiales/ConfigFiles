@@ -61,7 +61,7 @@ function path(){
 }
 
 # Copy pwd to the clipboard:
-alias cpwd='printf "%q\n" "$(pwd)" | pbcopy && echo "Current directory copied to clipboard."'
+alias cpwd='printf "%q\n" "$(pwd)" | pbcopy && echo "Current directory copied to clipboard:" $(pbpaste)'
 
 # To show system info on startup:
 #if [[ $(who | wc -l) -eq 2 ]]; then
