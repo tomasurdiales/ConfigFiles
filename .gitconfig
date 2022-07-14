@@ -3,3 +3,5 @@
 	email = 83011678+tomasurdiales@users.noreply.github.com
 [core]
 	excludesfile = /Users/tomasurdiales/.TomsConfig/.gitignore_global
+[init]
+	defaultBranch = master
