@@ -1,4 +1,0 @@
-#!/opt/homebrew/bin/zsh
-
-echo "Contrasenya1eslacontrasenya" | pbcopy 
-echo "Copied."
