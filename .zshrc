@@ -26,6 +26,11 @@ source $ZSH/oh-my-zsh.sh
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
 
+# For pyenv:
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
+# alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 
 # ##### Personal settings #####
@@ -45,8 +50,8 @@ zstyle ':vcs_info:git:*' formats ' (git)-%b'
 
 # Define PROMPT setup:
 setopt prompt_subst
-PROMPT=$'%{\e[1m%}[%{\e[1;32m%}%n@Mac%{\e[0m%}|%{\e[1;34m%}%~%{\e[0m%}%{\e[33m%}${vcs_info_msg_0_}%{\e[0m%}%{\e[1m%}] %{\e[0m%}'
-
+PROMPT=$'%{\e[1m%}[%{\e[1;32m%}tom@Mac%{\e[0m%}|%{\e[1;34m%}%~%{\e[0m%}%{\e[33m%}${vcs_info_msg_0_}%{\e[0m%}%{\e[1m%}] %{\e[0m%}'
+# PROMPT=$'%{\e[1m%}[%{\e[1;32m%}%n@Mac%{\e[0m%}|%{\e[1;34m%}%~%{\e[0m%}%{\e[33m%}${vcs_info_msg_0_}%{\e[0m%}%{\e[1m%}] %{\e[0m%}'
 # With no GIT information:
 # PS1=$'%{\e[1m%}[%{\e[1;32m%}%n@Mac%{\e[0m%}|%{\e[1;34m%}%~ ${vcs_info_msg_0_} %{\e[0m%}%{\e[1m%}] %{\e[0m%}'
 # # PS1=$'%{\e[1;32m%}%n@Mac %{\e[1;34m%}%~ %{\e[1;32m%}-> %{\e[0m%} '
