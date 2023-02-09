@@ -1,0 +1,8 @@
+[FORMAT]
+max-line-length=240
+disable=abstract-class-instantiated
+
+[MASTER]
+disable=
+	C0321, # multiple statements on single line
+	W0105, # pointless string statement

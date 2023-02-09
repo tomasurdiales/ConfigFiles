@@ -1,0 +1,21 @@
+#!/bin/bash
+
+NAME="current"
+if [ $# -eq 0 ]
+    then
+        echo "Specifiy user"
+    else
+        if [ $1 = $NAME ]
+            then
+                echo "Logging out current user..."
+                sudo launchctl bootout user/$(id -u)
+
+            else
+                echo "Logging out $1..."
+                sudo launchctl bootout user/$(id -u $1)
+                
+                # Old method:
+                # export pn=`ps awwwwux | awk '/alvarourdiales/ && /loginwind[o]w/ { print $2 }'`
+                # sudo kill -9 $pn
+        fi
+fi

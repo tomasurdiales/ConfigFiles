@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+  then
+    echo "Specifiy program"
+    else
+    printf "%q\n" "$(which $1)" | pbcopy
+    echo "Directory for $1 copied to clipboard: $(which $1)"
+fi

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# MATLAB command launcher:
+alias matlab="/Applications/MATLAB.app/bin/matlab -maci64 2> >(grep -v CoreText)"
+
+if [ $# -eq 0 ]
+    then
+		echo "Launching MATLAB GUI..."
+		matlab
+		echo "Exited succesfully."
+    else
+		if [ $1 = "-cli" ]
+			then
+				echo "Launching MATLAB CLI..."
+				matlab -nodesktop
+				echo "Exited succesfully."
+			else
+				echo "Executing script $1.m ..."
+				matlab -batch "$1"
+				echo "Completed execution."
+		fi
+fi

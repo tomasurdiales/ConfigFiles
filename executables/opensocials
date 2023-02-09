@@ -1,0 +1,6 @@
+#!/bin/bash
+
+open -a WhatsApp
+
+open https://mail.google.com/mail/u/0/
+open https://calendar.google.com/calendar/u/0/r
