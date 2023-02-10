@@ -1,11 +1,8 @@
 # For Homebrew path installation:
 # eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Manual PATH definition:
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
-# And for Homebrew:
 PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH 
 export PATH
+# PATH=/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # Paths for BIOCOMSC directories:
 export DROP_PATH="/Users/tomasurdiales/Dropbox/"
