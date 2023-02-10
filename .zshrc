@@ -73,8 +73,8 @@ alias ls='gls --color=auto --group-directories-first'
 export QUOTING_STYLE=literal
 
 # >>> conda initialize >>>
-#enable_conda=false
-if [ "$enable_conda" = true ]; then
+# ENABLE_CONDA=false
+if [ "$ENABLE_CONDA" = true ]; then
     echo '*Conda is on path.'
     export CONDA_AUTO_ACTIVATE_BASE=false
     # !! Contents within this block are managed by 'conda init' !!
