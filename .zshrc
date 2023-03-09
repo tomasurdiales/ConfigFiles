@@ -36,7 +36,7 @@ else # Only enable full customization when using guest login.
     autoload -Uz vcs_info
     precmd() {
         # # To leave a black row before new every command and call the GIT info variable:
-        precmd() {vcs_info}
+        precmd() {vcs_info && echo}
     }
     # Format GIT info on prompt:
     zstyle ':vcs_info:git:*' formats ' (git)-%b'
@@ -53,7 +53,8 @@ else # Only enable full customization when using guest login.
     fi
 
     # My 'ls' settings using coreutils-gls:
-    alias ls='gls --color=auto --group-directories-first'
+    LS_COLORS=$LS_COLORS:'di=1;34:' ; export LS_COLORS
+    alias ls='gls -h --color=auto --group-directories-first'
     export QUOTING_STYLE=literal
 
     # >>> conda initialize >>>

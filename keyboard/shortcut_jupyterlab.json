@@ -362,14 +362,6 @@
         },
         {
             "args": {},
-            "command": "imageviewer:invert-colors",
-            "keys": [
-                "I"
-            ],
-            "selector": ".jp-ImageViewer"
-        },
-        {
-            "args": {},
             "command": "imageviewer:reset-image",
             "keys": [
                 "0"
@@ -416,15 +408,7 @@
             ],
             "selector": "body"
         },
-        {
-            "args": {},
-            "command": "kernelmenu:interrupt",
-            "keys": [
-                "I",
-                "I"
-            ],
-            "selector": "[data-jp-kernel-user]:focus"
-        },
+
         {
             "args": {},
             "command": "kernelmenu:restart",
