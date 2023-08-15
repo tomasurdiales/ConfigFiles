@@ -5,4 +5,4 @@ export PATH
 # PATH=/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # Set Simplify project on python path:
-export PYTHONPATH=$HOME/Desktop/Simplify
+# export PYTHONPATH=$HOME/Desktop/Simplify
