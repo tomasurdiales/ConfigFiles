@@ -41,13 +41,10 @@ else # Only enable full customization when using guest login.
     # Format GIT info on prompt:
     zstyle ':vcs_info:git:*' formats ' (git)-%b'
 
-    # Define PROMPT setup:
+    # Define PROMPT setup:
     setopt prompt_subst
     if [ "$USER" = "tomasurdiales" ]; then
         PROMPT=$'%{\e[1m%}[%{\e[1;32m%}tom@Mac%{\e[0m%}|%{\e[1;34m%}%~%{\e[0m%}%{\e[33m%}${vcs_info_msg_0_}%{\e[0m%}%{\e[1m%}] %{\e[0m%}'
-        if [ "$ENABLE_CONDA" = true ]; then
-            PROMPT=$'%{\e[1m%}[%{\e[1;32m%}tom-conda@Mac%{\e[0m%}|%{\e[1;34m%}%~%{\e[0m%}%{\e[33m%}${vcs_info_msg_0_}%{\e[0m%}%{\e[1m%}] %{\e[0m%}'
-        fi
     else
         PROMPT=$'%{\e[1m%}[%{\e[1;32m%}%n@Mac%{\e[0m%}|%{\e[1;34m%}%~%{\e[0m%}%{\e[33m%}${vcs_info_msg_0_}%{\e[0m%}%{\e[1m%}] %{\e[0m%}'
     fi
@@ -58,24 +55,31 @@ else # Only enable full customization when using guest login.
     export QUOTING_STYLE=literal
 
     # >>> conda initialize >>>
-    # ENABLE_CONDA=false
-    if [ "$ENABLE_CONDA" = true ]; then
-        export CONDA_AUTO_ACTIVATE_BASE=false
-        # !! Contents within this block are managed by 'conda init' !!
-        __conda_setup="$('/Users/tomasurdiales/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-        if [ $? -eq 0 ]; then
-            eval "$__conda_setup"
+    export CONDA_AUTO_ACTIVATE_BASE=true
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/Users/tomasurdiales/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/Users/tomasurdiales/miniconda3/etc/profile.d/conda.sh" ]; then
+            . "/Users/tomasurdiales/miniconda3/etc/profile.d/conda.sh"
         else
-            if [ -f "/Users/tomasurdiales/miniconda3/etc/profile.d/conda.sh" ]; then
-                . "/Users/tomasurdiales/miniconda3/etc/profile.d/conda.sh"
-            else
-                export PATH="/Users/tomasurdiales/miniconda3/bin:$PATH"
-            fi
+            export PATH="/Users/tomasurdiales/miniconda3/bin:$PATH"
         fi
-        unset __conda_setup
-        echo '*Conda is on path.'
     fi
+    unset __conda_setup
     # <<< conda initialize <<<
+    export CONDACONFIGDIR=""
+    cd() { builtin cd "$@" && 
+    if [ -f $PWD/.conda_config ]; then
+        export CONDACONFIGDIR=$PWD
+        conda activate $(cat .conda_config)
+    elif [ "$CONDACONFIGDIR" ]; then
+        if [[ $PWD != *"$CONDACONFIGDIR"* ]]; then
+            export CONDACONFIGDIR=""
+            conda deactivate
+        fi
+    fi }
 fi
 
 # To make path output more readable:

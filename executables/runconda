@@ -1,6 +1,0 @@
-#!/bin/bash
-
-export ENABLE_CONDA=true
-zsh
-export ENABLE_CONDA=false
-echo 'Deactivated conda shell.'
