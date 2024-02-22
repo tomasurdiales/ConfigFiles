@@ -62,9 +62,9 @@ else # Only enable full customization when using guest login.
         eval "$__conda_setup"
     else
         if [ -f "/Users/tomasurdiales/miniconda3/etc/profile.d/conda.sh" ]; then
-            . "/Users/tomasurdiales/miniconda3/etc/profile.d/conda.sh"
+# . "/Users/tomasurdiales/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
         else
-            export PATH="/Users/tomasurdiales/miniconda3/bin:$PATH"
+# export PATH="/Users/tomasurdiales/miniconda3/bin:$PATH"  # commented out by conda initialize
         fi
     fi
     unset __conda_setup
