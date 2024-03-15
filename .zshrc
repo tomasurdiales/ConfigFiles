@@ -6,7 +6,7 @@ if [ "$USER" = "root" ]; then
     PROMPT=$'%{\e[1m%}[%{\e[1;32m%}%n@Mac%{\e[0m%}|%{\e[1;34m%}%~%{\e[0m%}%{\e[1m%}] %{\e[0m%}'
 
 else # Only enable full customization when using guest login.
-    # echo 'Welcome to shell (zsh)'
+    echo 'Welcome to shell (zsh)'
 
     # Path to your oh-my-zsh installation.
     export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
@@ -54,11 +54,14 @@ else # Only enable full customization when using guest login.
     alias ls='gls -h --color=auto --group-directories-first'
     export QUOTING_STYLE=literal
 
+    # Set up automatic poetry env activations:
     export POETRY_AUTO_ENV=""
-    cd() { builtin cd "$@" && 
+    cd() { builtin cd "$@" &&
     if [ -f $PWD/pyproject.toml ]; then
-        export POETRY_AUTO_ENV=$PWD
-        source $PWD/.venv/bin/activate
+        if [ -f $PWD/.venv/bin/activate ]; then
+            export POETRY_AUTO_ENV=$PWD
+            source $PWD/.venv/bin/activate
+        fi
     elif [ "$POETRY_AUTO_ENV" ]; then
         if [[ $PWD != *"$POETRY_AUTO_ENV"* ]]; then
             export POETRY_AUTO_ENV=""
