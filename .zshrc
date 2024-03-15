@@ -6,7 +6,7 @@ if [ "$USER" = "root" ]; then
     PROMPT=$'%{\e[1m%}[%{\e[1;32m%}%n@Mac%{\e[0m%}|%{\e[1;34m%}%~%{\e[0m%}%{\e[1m%}] %{\e[0m%}'
 
 else # Only enable full customization when using guest login.
-    echo 'Welcome to shell (zsh)'
+    # echo 'Welcome to shell (zsh)'
 
     # Path to your oh-my-zsh installation.
     export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
@@ -54,32 +54,21 @@ else # Only enable full customization when using guest login.
     alias ls='gls -h --color=auto --group-directories-first'
     export QUOTING_STYLE=literal
 
-    # >>> conda initialize >>>
-    export CONDA_AUTO_ACTIVATE_BASE=true
-    # !! Contents within this block are managed by 'conda init' !!
-    __conda_setup="$('/Users/tomasurdiales/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-    if [ $? -eq 0 ]; then
-        eval "$__conda_setup"
-    else
-        if [ -f "/Users/tomasurdiales/miniconda3/etc/profile.d/conda.sh" ]; then
-# . "/Users/tomasurdiales/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
-        else
-# export PATH="/Users/tomasurdiales/miniconda3/bin:$PATH"  # commented out by conda initialize
-        fi
-    fi
-    unset __conda_setup
-    # <<< conda initialize <<<
-    export CONDACONFIGDIR=""
+    export POETRY_AUTO_ENV=""
     cd() { builtin cd "$@" && 
-    if [ -f $PWD/.conda_config ]; then
-        export CONDACONFIGDIR=$PWD
-        conda activate $(cat .conda_config)
-    elif [ "$CONDACONFIGDIR" ]; then
-        if [[ $PWD != *"$CONDACONFIGDIR"* ]]; then
-            export CONDACONFIGDIR=""
-            conda deactivate
+    if [ -f $PWD/pyproject.toml ]; then
+        export POETRY_AUTO_ENV=$PWD
+        source $PWD/.venv/bin/activate
+    elif [ "$POETRY_AUTO_ENV" ]; then
+        if [[ $PWD != *"$POETRY_AUTO_ENV"* ]]; then
+            export POETRY_AUTO_ENV=""
+            deactivate
         fi
     fi }
+
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
 fi
 
 # To make path output more readable:

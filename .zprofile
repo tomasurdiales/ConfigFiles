@@ -1,9 +1,10 @@
-# Set path manually:
+# Add homebrew to path:
 PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH 
+# Add poetry to path:
+PATH="/Users/tomasurdiales/.local/bin:$PATH"
 export PATH
-# Default path:
-# PATH=/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-# Set Simplify project on python path:
-# export PYTHONPATH=$PYTHONPATH:$HOME/Desktop/aFRR/
-#! Do instead: pip3 install -e .
+# Pyenv start-up:
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
