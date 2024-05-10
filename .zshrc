@@ -89,3 +89,4 @@ alias cpwd='printf "%q\n" "$(pwd)" | pbcopy && echo "Current directory copied to
 alias gs='git status'
 alias gf='git fetch'
 alias gfs='git fetch && git status'
+alias gba='git branch -a'
