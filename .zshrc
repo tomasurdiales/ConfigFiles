@@ -48,6 +48,7 @@ else # Only enable full customization when using guest login.
     else
         PROMPT=$'%{\e[1m%}[%{\e[1;32m%}%n@Mac%{\e[0m%}|%{\e[1;34m%}%~%{\e[0m%}%{\e[33m%}${vcs_info_msg_0_}%{\e[0m%}%{\e[1m%}] %{\e[0m%}'
     fi
+    export PROMPT
 
     # My 'ls' settings using coreutils-gls:
     LS_COLORS=$LS_COLORS:'di=1;34:' ; export LS_COLORS
