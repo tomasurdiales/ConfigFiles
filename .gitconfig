@@ -4,4 +4,6 @@
 [core]
 	excludesfile = /Users/tomasurdiales/.TomsConfig/.gitignore_global
 [init]
-	defaultBranch = master
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
