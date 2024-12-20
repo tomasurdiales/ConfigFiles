@@ -12,7 +12,7 @@ else # Only enable full customization when using guest login.
     export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
     export ZSH=$HOME/.oh-my-zsh
     # Theme:
-    # ZSH_THEME="eastwood" # set by `omz`
+    # ZSH_THEME="kphoen" # set by `omz`
     # Uncomment the following lines to change the auto-update behavior
     # zstyle ':omz:update' mode disabled  # disable automatic updates
     # zstyle ':omz:update' mode auto      # update automatically without asking
@@ -52,7 +52,7 @@ else # Only enable full customization when using guest login.
 
     # My 'ls' settings using coreutils-gls:
     LS_COLORS=$LS_COLORS:'di=1;34:' ; export LS_COLORS
-    alias ls='gls -h --color=auto --group-directories-first'
+    alias ls='gls --human-readable --color=auto --group-directories-first'
     export QUOTING_STYLE=literal
 
     # Set up automatic poetry env activations:
@@ -91,3 +91,4 @@ alias gs='git status'
 alias gf='git fetch'
 alias gfs='git fetch && git status'
 alias gba='git branch -a'
+alias gl='git log --oneline'
