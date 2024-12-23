@@ -87,8 +87,9 @@ function path(){
 alias cpwd='printf "%q\n" "$(pwd)" | pbcopy && echo "Current directory copied to clipboard:" $(pbpaste)'
 
 # Quick aliases for git commands:
-alias gs='git status'
 alias gf='git fetch'
+alias gs='git status'
+alias gl='git log'
 alias gfs='git fetch && git status'
 alias gba='git branch -a'
-alias gl='git log --oneline'
+alias glo='git log --oneline'
